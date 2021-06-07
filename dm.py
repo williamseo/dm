@@ -1,6 +1,7 @@
 #!/d/sysutils/conda/python
 # -*- coding: utf-8 -*-
 
+import time
 from selenium import webdriver
 
 # selenium에서 사용할 웹 드라이버 절대 경로 정보
@@ -14,6 +15,10 @@ driver.find_element_by_css_selector('body > div.scanContents > ul > li:nth-child
 driver.find_element_by_name('userId').send_keys('butcool')
 driver.find_element_by_name('pwd').send_keys('metro@105')
 driver.find_element_by_id('genLogin').click()
+driver.get('https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=15000000098&HighCtgCD=A02004002&Mcode=10205')
+driver.find_element_by_css_selector('#applyBtn > a').click()
+time.sleep(5)
+driver.find_element_by_css_selector('body > div.contentsWrap > div > div.form-inner > div.element-tab > a:nth-child(2)').click()
 
 #print("+" * 100)
 #print(driver.title)   # 크롤링한 페이지의 title 정보
